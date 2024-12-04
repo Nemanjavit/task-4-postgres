@@ -17,6 +17,7 @@ app.get("/users", async (req, res) => {
 
   try {
     const { rows } = await client.query("SELECT * FROM users");
+    console.log(rows, "sad");
     res.json({ msg: "Ok", data: rows });
   } catch (error) {
     res.json({ msg: error.msg });
@@ -25,6 +26,6 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () =>
+app.listen(process.env.PORT || 4000, () =>
   console.log("Server is running on port 5000")
 );
