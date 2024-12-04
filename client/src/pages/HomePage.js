@@ -3,6 +3,17 @@ import { useAuth0 } from "@auth0/auth0-react";
 const HomePage = () => {
   const { loginWithRedirect, logout } = useAuth0();
 
+  const handleSignUp = async () => {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/",
+      },
+      authorizationParams: {
+        screen_hint: "signup",
+      },
+    });
+  };
+
   return (
     <div>
       <button
@@ -12,8 +23,8 @@ const HomePage = () => {
       >
         Log Out
       </button>
-      HOME PAGE return
-      <button onClick={() => loginWithRedirect()}>Log In</button>;
+      HOME PAGE
+      <button onClick={handleSignUp}>Sign Up</button>;
     </div>
   );
 };
