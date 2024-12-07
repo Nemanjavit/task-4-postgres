@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import PageLayout from "../components/PageLayout";
 
 const HomePage = () => {
   const { loginWithRedirect, logout } = useAuth0();
@@ -15,17 +16,19 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <button
-        onClick={() =>
-          logout({ logoutParams: { returnTo: window.location.origin } })
-        }
-      >
-        Log Out
-      </button>
-      HOME PAGE
-      <button onClick={handleSignUp}>Sign Up</button>;
-    </div>
+    <PageLayout>
+      <div>
+        <button
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
+        >
+          Log Out
+        </button>
+        HOME PAGE
+        <button onClick={handleSignUp}>Sign Up</button>;
+      </div>
+    </PageLayout>
   );
 };
 

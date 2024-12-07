@@ -8,8 +8,16 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL + "?sslmode=require",
+// });
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL + "?sslmode=require",
+  user: "postgres",
+  host: "localhost",
+  database: "postgres",
+  password: "Zujosaurus90",
+  port: 5432,
 });
 
 app.get("/users", async (req, res) => {
