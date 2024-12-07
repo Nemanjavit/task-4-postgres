@@ -5,39 +5,57 @@ import { FaMoon } from "react-icons/fa";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import SignUp from "./SignUp";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const Nav = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
-  const onThemeChange = () => setIsDark(!isDark);
+  const onThemeChange = () => {
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
+
   useEffect(() => {
     const html = document.getElementsByTagName("html")[0];
-    if (html.getAttribute("data-bs-theme") == "dark") {
-      html.setAttribute("data-bs-theme", "light");
-    } else {
-      html.setAttribute("data-bs-theme", "dark");
-    }
-  }, [isDark]);
+    html.setAttribute("data-bs-theme", theme);
+  }, [theme, setTheme]);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary py-0 navbar">
       <Container>
         <Navbar.Brand href="/">Navbar with text</Navbar.Brand>
 
         <Navbar.Toggle />
 
-        <Navbar.Collapse className="justify-content-end gap-5">
-          <NavLink className="d-block" to="/">
+        <Navbar.Collapse className="justify-content-end">
+          <NavLink
+            className="d-block text-decoration-none px-3 py-3 text-muted navbar_link"
+            to="/"
+          >
             Home
           </NavLink>
-          <NavLink className="d-block" to="/dashboard">
+          <NavLink
+            className="d-block text-decoration-none px-3 py-3 text-muted navbar_link"
+            to="/dashboard"
+          >
             Dashboard
           </NavLink>
-          <NavLink className="d-block" to="/">
+          <div className="text-decoration-none px-3 py-3 text-muted navbar_link">
             <SignUp />
-          </NavLink>
-          <button className="bg-transparent border-0" onClick={onThemeChange}>
-            {isDark ? <IoSunnyOutline size={20} /> : <FaMoon size={20} />}
+          </div>
+
+          <button
+            className="bg-transparent border-0 px-3"
+            onClick={onThemeChange}
+          >
+            {theme === "dark" ? (
+              <IoSunnyOutline size={20} />
+            ) : (
+              <FaMoon size={20} />
+            )}
           </button>
         </Navbar.Collapse>
       </Container>

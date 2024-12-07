@@ -6,7 +6,11 @@ const SignUp = () => {
   const handleSignUp = async () => {
     await loginWithPopup({});
   };
-  return <button onClick={handleSignUp}>SignUp</button>;
+  return (
+    <button className="border-0  bg-transparent" onClick={handleSignUp}>
+      SignUp
+    </button>
+  );
 };
 
 export default SignUp;

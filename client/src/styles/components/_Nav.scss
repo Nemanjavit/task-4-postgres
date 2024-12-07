@@ -1,0 +1,6 @@
+.navbar {
+  &_link:hover {
+    background: $primary;
+    opacity: 0.9;
+  }
+}

@@ -1,8 +1,7 @@
 import Dashboard from "./pages/Dashboard";
 import HomePage from "./pages/HomePage";
 import { Route, Routes } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
