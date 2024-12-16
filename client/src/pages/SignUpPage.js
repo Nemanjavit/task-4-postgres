@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 import useApi, { baseUrl, methodTypes } from "../hooks/useApi";
 
 const SignUpPage = () => {
-  const { state, getData } = useApi(methodTypes.POST, baseUrl + "/auth/signup");
+  const { state, getData } = useApi(methodTypes.POST, "/auth/signup");
   const { error, isLoading } = state;
   const navigate = useNavigate();
 
