@@ -6,7 +6,13 @@ const authRouter = require("./router/authRouter");
 
 require("dotenv").config();
 
-app.use(cors());
+app.use(
+  cors({
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    origin: "https://task-4-postgres-uleg.vercel.app",
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 app.use(express.json());
 
 app.use("/auth", authRouter);
