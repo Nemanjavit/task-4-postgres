@@ -1,12 +1,9 @@
 import LoginForm from "../components/LoginForm";
 import PageLayout from "../components/PageLayout";
-import useApi, { methodTypes } from "../hooks/useApi";
+import useApi, { baseUrl, methodTypes } from "../hooks/useApi";
 
 const LoginPage = () => {
-  const { state, getData } = useApi(
-    methodTypes.POST,
-    "http://localhost:4000/auth/login"
-  );
+  const { state, getData } = useApi(methodTypes.POST, baseUrl + "/auth/login");
 
   const handleLogin = async (data) => {
     console.log(data);
