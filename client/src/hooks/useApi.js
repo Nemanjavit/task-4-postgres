@@ -15,7 +15,7 @@ export const methodTypes = {
 export const baseUrl =
   process.env.REACT_APP_VERCEL_ENV === "Dev"
     ? "http://localhost:4000"
-    : "task-4-postgres.vercel.app";
+    : "https://task-4-postgres.vercel.app";
 console.log();
 const request = async (method, url, data, config) => {
   switch (method) {

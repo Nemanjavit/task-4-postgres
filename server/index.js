@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/auth", authRouter);
+
 app.get("/users", async (req, res) => {
   const client = await pool.connect();
 
