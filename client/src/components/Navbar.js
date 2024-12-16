@@ -3,8 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { FaMoon } from "react-icons/fa";
 import { IoSunnyOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
-import SignUp from "./SignUp";
+import { useLayoutEffect } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
 const Nav = () => {
@@ -18,7 +17,7 @@ const Nav = () => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const html = document.getElementsByTagName("html")[0];
     html.setAttribute("data-bs-theme", theme);
   }, [theme, setTheme]);
@@ -43,9 +42,12 @@ const Nav = () => {
           >
             Dashboard
           </NavLink>
-          <div className="text-decoration-none px-3 py-3 text-muted navbar_link">
-            <SignUp />
-          </div>
+          <NavLink
+            className="d-block text-decoration-none px-3 py-3 text-muted navbar_link"
+            to="/signup"
+          >
+            SignUp
+          </NavLink>
 
           <button
             className="bg-transparent border-0 px-3"

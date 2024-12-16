@@ -3,10 +3,12 @@ import Nav from "./Navbar";
 
 const PageLayout = ({ children }) => {
   return (
-    <div className="page-layout">
+    <>
       <Nav />
-      <Container>{children}</Container>
-    </div>
+      <Container className="flex-grow-1 d-flex flex-column">
+        {children}
+      </Container>
+    </>
   );
 };
 
