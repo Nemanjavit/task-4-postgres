@@ -44,6 +44,7 @@ app.use(
     },
   })
 );
+console.log(process.env.SECRET_COOKIE);
 
 app.use("/auth", authRouter);
 app.use("/", templatesRouter);
