@@ -1,11 +1,11 @@
 import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
 import { Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaLock } from "react-icons/fa";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 
 const config = {
   signup: {
@@ -103,6 +103,7 @@ const LoginForm = ({ type, handleSubmit, error, isLoading }) => {
             )}
           </Form.Group>
 
+          <Link to="/login">Already have an account? Log in</Link>
           <Button
             disabled={isLoading}
             className="my-3 w-100 py-2"

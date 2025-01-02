@@ -5,7 +5,7 @@ const PageLayout = ({ children }) => {
   return (
     <>
       <Nav />
-      <Container className="flex-grow-1 d-flex flex-column">
+      <Container className="flex-grow-1 d-flex flex-column position-relative">
         {children}
       </Container>
     </>
