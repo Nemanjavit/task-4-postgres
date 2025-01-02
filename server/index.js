@@ -13,7 +13,14 @@ app.use(express.json());
 app.use(
   cors({
     methods: ["POST", "GET", "PUT", "DELETE"],
-    origin: "https://task-4-postgres-uleg.vercel.app",
+    origin: (origin, callback) => {
+      const allowedOrigins = ["https://task-4-postgres-uleg.vercel.app"];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
@@ -31,9 +38,9 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60,
-      secure: process.env.ENVIRONMENT === "production" ? true : "auto",
+      secure: true,
       httpOnly: true,
-      sameSite: process.env.ENVIRONMENT === "production" ? "none" : "lax",
+      sameSite: "none",
     },
   })
 );
