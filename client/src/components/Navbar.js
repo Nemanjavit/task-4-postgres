@@ -13,7 +13,6 @@ import { makeToast } from "../helpers/notifications";
 const Nav = () => {
   const [theme, setTheme] = useLocalStorage("theme", "light");
   const { user, setUser } = useContext(AuthContext);
-  console.log(process.env.SECRET_COOKIE);
 
   const onThemeChange = () => {
     if (theme === "dark") {
