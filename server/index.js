@@ -32,7 +32,7 @@ app.use(
       pool,
     }),
     domain: "/",
-    secret: SECRET_COOKIE,
+    secret: process.env.SECRET_COOKIE,
     credentials: true,
     name: "sid",
     resave: false,
