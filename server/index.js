@@ -30,6 +30,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
+      domain: "https://task-4-postgres-uleg.vercel.app",
       maxAge: 3600000,
       secure: true,
       httpOnly: true,
