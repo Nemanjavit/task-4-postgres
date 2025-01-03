@@ -31,6 +31,7 @@ app.use(
     store: new pgSession({
       pool,
     }),
+    domain: "/",
     secret: process.env.SECRET_COOKIE,
     credentials: true,
     name: "sid",
