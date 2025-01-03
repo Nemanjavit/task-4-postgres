@@ -31,7 +31,6 @@ app.use(
     store: new pgSession({
       pool,
     }),
-    domain: "https://task-4-postgres-uleg.vercel.app",
     secret: process.env.SECRET_COOKIE,
     credentials: true,
     name: "sid",
@@ -39,7 +38,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60,
-      secure: true,
+      secure: false,
       httpOnly: true,
       sameSite: "none",
     },

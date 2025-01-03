@@ -38,7 +38,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   const client = await pool.connect();
   const { email, password } = req.body;
-  console.log(process.env.SECRET_COOKIE);
+
   const findUser = await client.query(
     "SELECT id, email, hashed_password FROM users WHERE users.email=$1",
     [email]
